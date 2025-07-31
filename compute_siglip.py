@@ -231,14 +231,14 @@ def main(args):
                                      F.normalize(examples, dim=-1), 
                                      F.normalize(examples, dim=-1))).sum(dim=0).detach().cpu()
     orthogonalities = orthogonalities.detach().cpu().numpy() / (non_spatial_results.shape[0])
-    with open(os.path.join(args.output_dir, f'{name}_{args.model.replace('/', '_')}_orthogonalities.npy'), 'wb') as f:
+    with open(os.path.join(args.output_dir, f"{name}_{args.model.replace('/', '_')}_orthogonalities.npy"), 'wb') as f:
         np.save(f, orthogonalities)
     plt.figure(figsize=(10, 10))
     plt.imshow(orthogonalities - np.eye(orthogonalities.shape[0]))
     plt.colorbar()
-    plt.savefig(os.path.join(args.output_dir, f'{name}_{args.model.replace('/', '_')}_orthogonalities.pdf'))
+    plt.savefig(os.path.join(args.output_dir, f"{name}_{args.model.replace('/', '_')}_orthogonalities.pdf"))
     plt.close()
-    print(f"Saved orthogonalities to {os.path.join(args.output_dir, f'{name}_{args.model.replace('/', '_')}_orthogonalities.npy')}")
+    print(f'Saved orthogonalities to {os.path.join(args.output_dir, f"{name}_{args.model.replace('/', '_')}_orthogonalities.npy")}')
     
     if args.compute_text_spans:
         print(f"Non-spatial results shape: {non_spatial_results.shape}")
