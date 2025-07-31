@@ -210,7 +210,7 @@ def main(args):
             lines = f.readlines()
     base, name = os.path.split(args.text_descriptions)
     name = name.replace('.txt', '')
-    text_features_path = os.path.join(args.output_dir, f'{name}_{args.model.replace('/', '_')}.npy')
+    text_features_path = os.path.join(args.output_dir, f"{name}_{args.model.replace('/', '_')}.npy")
     if os.path.exists(text_features_path):
         print(f"Loading text features from {text_features_path}")
         text_features = np.load(text_features_path)
