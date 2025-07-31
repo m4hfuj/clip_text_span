@@ -238,7 +238,12 @@ def main(args):
     plt.colorbar()
     plt.savefig(os.path.join(args.output_dir, f"{name}_{args.model.replace('/', '_')}_orthogonalities.pdf"))
     plt.close()
-    print(f'Saved orthogonalities to {os.path.join(args.output_dir, f"{name}_{args.model.replace('/', '_')}_orthogonalities.npy")}')
+    # print(f'Saved orthogonalities to {os.path.join(args.output_dir, f"{name}_{args.model.replace('/', '_')}_orthogonalities.npy")}')
+    model_name = args.model.replace('/', '_')
+    filename = f"{name}_{model_name}_orthogonalities.npy"
+    filepath = os.path.join(args.output_dir, filename)
+    print(f"Saved orthogonalities to {filepath}")
+
     
     if args.compute_text_spans:
         print(f"Non-spatial results shape: {non_spatial_results.shape}")
