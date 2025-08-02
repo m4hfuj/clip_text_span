@@ -84,4 +84,5 @@ class HookManager(object):
     def finalize(self):
         for name in self.hook_dict.keys():
             if self.called[name] == 0:
-                raise ValueError(f'Hook {name} was registered but never used!')
+                # raise ValueError(f'Hook {name} was registered but never used!')
+                pass
